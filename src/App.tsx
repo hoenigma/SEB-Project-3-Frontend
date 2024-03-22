@@ -7,7 +7,7 @@ import Home from './components/Home'
 // import AddAnimal from './components/AddAnimal'
 // import { useEffect, useState } from 'react'
 // import ShowAnimal from './components/ShowAnimal'
-// import AllAnimals from './components/AllAnimals'
+import AllAnimals from './components/AllAnimals'
 import axios from 'axios'
  import react from 'react'
 
@@ -21,8 +21,8 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={< Home />} />
-        {/* <Route path="/allanimals" element={< AllAnimals />}/>
-        <Route path="/animalcard" element={< AnimalCard />} />
+        <Route path="/allanimals" element={< AllAnimals />}/>
+        {/* <Route path="/animalcard" element={< AnimalCard />} />
         <Route path="/signup" element={< Signup />} />
         <Route path="/login" element={< Login fetchUser={fetchUser}/>} />
         <Route path="/addanimal" element={< AddAnimal />} />
