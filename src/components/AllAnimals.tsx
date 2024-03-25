@@ -53,7 +53,7 @@ function AllAnimals() {
     <>
       <section className="section is-flex is-flex-direction-column">
         <div className="columns is-multicolumn">
-          <div className="container ">
+          <div className="container">
             <div className="searchbar column is-half is-pulled-left">
               <input
                 id="searchBar"
@@ -68,7 +68,7 @@ function AllAnimals() {
                 <div className="dropdown-trigger">
                   <div className="dropdown is-active">
                     <div className="dropdown-trigger">
-                      <div className="select">
+                      <div className="select is-hovered">
                         <select
                           name="type"
                           value={value}
@@ -86,10 +86,9 @@ function AllAnimals() {
               </div>
             </div>
           </div>
-
           <span className="is-flex mt-3">
             <Link to="/addanimal">
-              <button className="button is-link mr-4">
+              <button className="button is-light is-outlined mr-4">
                 Add Animal
                 <span className="icon ml-1">
                   <i className="fa fa-plus"></i>

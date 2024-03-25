@@ -40,45 +40,37 @@ export default function AddAnimal() {
 
   return (
     <div className="section">
-      <div className="container">
+      <div className="container add is-max-desktop custom-border-radius p-6">
         <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label className="label">Animal Name</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"name"}
-                onChange={handleChange}
-                value={formData.name}
-              />
+          <div className="title is-size-2 pl-1 mb-5">Add Animal</div>
+          <div className="columns is-multiline p-1 mb-0">
+            <div className="field column">
+              <label className="label">Animal Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name={"name"}
+                  onChange={handleChange}
+                  value={formData.name}
+                />
+              </div>
+            </div>
+            <div className="field column">
+              <label className="label">Species</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name={"species"}
+                  onChange={handleChange}
+                  value={formData.species}
+                />
+              </div>
             </div>
           </div>
-          <div className="field">
-            <label className="label">Species</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"species"}
-                onChange={handleChange}
-                value={formData.species}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Image</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"image"}
-                onChange={handleChange}
-                value={formData.image}
-              />
-            </div>
-          </div>
-          <div className="field">
+
+          <div className="field is-flex is-justify-content-space-between p-1">
             <label className="label">Type</label>
             <div className="dropdown is-active">
               <div className="dropdown-trigger">
@@ -101,19 +93,7 @@ export default function AddAnimal() {
               </div>
             </div>
           </div>
-          <div className="field">
-            <label className="label">Top Tip</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"topTip"}
-                onChange={handleChange}
-                value={formData.topTip}
-              />
-            </div>
-          </div>
-          <div className="field">
+          <div className="field is-flex is-justify-content-space-between p-1">
             <label className="label">Dietary</label>
             <div className="dropdown is-active">
               <div className="dropdown-trigger">
@@ -137,7 +117,7 @@ export default function AddAnimal() {
               </div>
             </div>
           </div>
-          <div className="field">
+          <div className="field is-flex is-justify-content-space-between p-1">
             <label className="label">Continent</label>
             <div className="dropdown is-active">
               <div className="dropdown-trigger">
@@ -164,7 +144,34 @@ export default function AddAnimal() {
               </div>
             </div>
           </div>
-          <div className="field">
+
+          <div className="field p-1">
+            <label className="label">Image</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                name={"image"}
+                onChange={handleChange}
+                value={formData.image}
+              />
+            </div>
+          </div>
+
+          <div className="field p-1 mt-1">
+            <label className="label">Top Tip</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                name={"topTip"}
+                onChange={handleChange}
+                value={formData.topTip}
+              />
+            </div>
+          </div>
+
+          <div className="field p-1 mt-1">
             <label className="label">Fun Fact</label>
             <div className="control">
               <input
@@ -176,7 +183,7 @@ export default function AddAnimal() {
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field is-flex is-justify-content-space-between p-1 mt-1">
             <label className="label">Conservation</label>
             <div className="dropdown is-active">
               <div className="dropdown-trigger">
@@ -212,7 +219,7 @@ export default function AddAnimal() {
               </div>
             </div>
           </div>
-          <button className="button">Submit</button>
+          <button className="button mt-6">Submit</button>
         </form>
       </div>
     </div>
