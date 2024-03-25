@@ -7,7 +7,6 @@ import AddAnimal from "./components/AddAnimal";
 import { useEffect, useState } from "react";
 import ShowAnimal from "./components/ShowAnimal";
 import AllAnimals from "./components/AllAnimals";
-import AddAnimal from "./components/AddAnimal";
 import axios from "axios";
 import React from "react";
 
