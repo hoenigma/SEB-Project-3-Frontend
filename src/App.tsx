@@ -42,8 +42,8 @@ function App() {
         <Route path="/animals" element={<AllAnimals />} />
         <Route path="/signup" element={< Signup />} />
         <Route path="/login" element={< Login fetchUser={fetchUser} />} /> 
-        <Route path="/addanimal" element={< AddAnimal />} />
-        <Route path="/animal/:animalId" element={<ShowAnimal  />} /> */
+        <Route path="/addanimal" element={< AddAnimal />} /> 
+        <Route path="/animal/:animalId" element={<ShowAnimal  />} /> 
       </Routes>
     </Router>
   );
