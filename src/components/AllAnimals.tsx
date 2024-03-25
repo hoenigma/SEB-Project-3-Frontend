@@ -1,34 +1,34 @@
-import React from 'react'
-import Animal from "./AnimalCard"
+import React from "react";
+import Animal from "./AnimalCard";
+import { IAnimal } from "../interfaces/animal";
 
-function AllAnimals (){
-    const [animals, setAnimals] = React.useState (null)
-React.useEffect(()=>{
-    async function fetchAnimals(){
-      const resp = await fetch('/api/animals')
-      const data = await resp.json()
-      console.log(data)
-      setAnimals(data)
+type Animals = null | Array<IAnimal>;
+
+function AllAnimals() {
+  const [animals, setAnimals] = React.useState<Animals>(null);
+  React.useEffect(() => {
+    async function fetchAnimals() {
+      const resp = await fetch("/api/animals");
+      const data = await resp.json();
+      console.log(data);
+      setAnimals(data);
     }
-    fetchAnimals()
-  }, [])
+    fetchAnimals();
+  }, []);
 
-  console.log(animals)
+  console.log(animals);
 
-    return<section className="section">
-        <div className="container">
-            <div className="columns is-multiline">
-                {animals?.map(animal =>{
-                    return <Animal
-                    key={animal._id}
-                    {...animal}
-                    />
-                })}
-            </div>
+  return (
+    <section className="section">
+      <div className="container">
+        <div className="columns is-multiline">
+          {animals?.map((animal) => {
+            return <Animal key={animal._id} {...animal} />;
+          })}
         </div>
-   
+      </div>
     </section>
-
+  );
 }
 
-export default AllAnimals
+export default AllAnimals;

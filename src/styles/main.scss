@@ -1,31 +1,72 @@
 .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 51, 149, 0.8),
+      rgba(0, 51, 149, 0.8)
+    ),
+    url(../assets/BGanimals.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 200px;
+}
+
+p {
+  color: #323232;
+}
+
+.underline-hover:hover {
+  font-weight: bold;
+}
+
+.custom-border-radius {
+  border-radius: 10px;
+}
+
+.custom-min-width {
+  min-width: 200px;
+}
+
+.custom-height {
+  max-height: 50px;
+}
+
+.button {
+  max-height: 40px;
+}
+
+.animal {
+  max-width: 1000px;
 }
 
 .card-content {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .button.navbar-item {
-    height: auto
+  height: auto;
 }
 
 .logo-emoji {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .form-link {
-    margin-left: 3px;
+  margin-left: 3px;
 }
 
 span.logout {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 section.section {
-    min-height: calc(100vh - 11.25rem);
+  min-height: calc(100vh - 11.25rem);
 }
 
 $footer-background-color: #363636;
