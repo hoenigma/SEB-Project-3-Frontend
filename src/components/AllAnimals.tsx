@@ -1,6 +1,7 @@
 import React from "react";
 import Animal from "./AnimalCard";
 import { IAnimal } from "../interfaces/animal";
+import { Link } from "react-router-dom";
 
 type Animals = null | Array<IAnimal>;
 
@@ -19,15 +20,27 @@ function AllAnimals() {
   console.log(animals);
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="columns is-multiline">
-          {animals?.map((animal) => {
-            return <Animal key={animal._id} {...animal} />;
-          })}
+    <>
+      <section className="section is-flex is-flex-direction-column">
+        <span className="is-flex my-5">
+          <Link to="/addanimal">
+            <button className="button">
+              Add Animal
+              <span className="icon ml-1">
+                <i className="fa fa-plus"></i>
+              </span>
+            </button>
+          </Link>
+        </span>
+        <div className="container">
+          <div className="columns is-multiline">
+            {animals?.map((animal) => {
+              return <Animal key={animal._id} {...animal} />;
+            })}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
