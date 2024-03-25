@@ -7,6 +7,7 @@ import AddAnimal from "./components/AddAnimal";
 import { useEffect, useState } from "react";
 import ShowAnimal from "./components/ShowAnimal";
 import AllAnimals from "./components/AllAnimals";
+import Community from "./components/AddComment";
 import axios from "axios";
 import React from "react";
 
@@ -35,7 +36,8 @@ function App() {
         <Route path="/signup" element={< Signup />} />
         <Route path="/login" element={< Login fetchUser={fetchUser} />} /> 
         <Route path="/addanimal" element={< AddAnimal />} /> 
-        <Route path="/animal/:animalId" element={<ShowAnimal  />} /> 
+        <Route path="/animal/:animalId" element={<ShowAnimal user={user}  />} /> 
+        <Route path="/:animalId/posts" element={<Community />} />
       </Routes>
     </Router>
   );

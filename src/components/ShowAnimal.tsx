@@ -1,11 +1,14 @@
-import React from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import React, { SyntheticEvent } from "react";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import AnimalCard from "./AnimalCard";
 import { IAnimal } from "../interfaces/animal";
+import { IUser } from "../interfaces/user";
+import axios from "axios";
 
-function ShowAnimal() {
+function ShowAnimal({user}: {user: null| IUser}) {
   const [animal, updateAnimal] = React.useState<IAnimal | null>(null);
   const { animalId } = useParams();
+  const navigate = useNavigate()
 
   React.useEffect(() => {
     async function fetchAnimal() {
@@ -17,6 +20,21 @@ function ShowAnimal() {
     }
     fetchAnimal();
   }, []);
+
+  async function deleteAnimal(e: SyntheticEvent){
+    try{
+      const token = localStorage.getItem("token")
+      console.log(token)
+      console.log(animalId)
+      await axios.delete("/api/animals/" + animalId, {
+        headers: {Authorization: `Bearer ${token}`}
+      })
+      navigate('/animals')
+    }catch (e:any){
+      console.log(e.response.data)
+    }
+  }
+
 
   if (!animal) {
     return <p>Animal Loading...</p>;
@@ -32,7 +50,9 @@ function ShowAnimal() {
             {animal.type}
           </p>
         </div>
-        <button className="button">Update {animal.name}</button>
+        {animal && user && (user._id === animal.user) && <button className="button">Update {animal.name}</button>}
+        {animal && user && (user._id === animal.user) && <button onClick={deleteAnimal} className="button is-danger">Delete {animal.name}</button>}
+       <Link to= {`/${animal._id}/posts`}> <button className="button">{animal.name} Community Posts</button> </Link>
       </div>
       <div className="columns is-multiline mx-6">
         <div className="column is-two-fifths">
