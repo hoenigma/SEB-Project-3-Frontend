@@ -80,14 +80,25 @@ export default function AddAnimal() {
           </div>
           <div className="field">
             <label className="label">Type</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"type"}
-                onChange={handleChange}
-                value={formData.type}
-              />
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="type"
+                        value={formData.type}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Land">Land</option>
+                        <option value="Water">Water</option>
+                        <option value="Domestic">Domestic</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="field">
@@ -104,26 +115,53 @@ export default function AddAnimal() {
           </div>
           <div className="field">
             <label className="label">Dietary</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"dietary"}
-                onChange={handleChange}
-                value={formData.dietary}
-              />
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="dietary"
+                        value={formData.dietary}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Carnivore">Carnivore</option>
+                        <option value="Herbivore">Herbivore</option>
+                        <option value="Omnivore">Omnivore</option>
+                        <option value="Insectivore">Insectivore</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="field">
             <label className="label">Continent</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"continent"}
-                onChange={handleChange}
-                value={formData.continent}
-              />
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="continent"
+                        value={formData.continent}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Asia">Asia</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Antarctica">Antarctica</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div className="field">
@@ -140,14 +178,38 @@ export default function AddAnimal() {
           </div>
           <div className="field">
             <label className="label">Conservation</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"conservation"}
-                onChange={handleChange}
-                value={formData.conservation}
-              />
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="conservation"
+                        value={formData.conservation}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Least Concerned (LC)">
+                          Least Concerned (LC)
+                        </option>
+                        <option value="Near Threatened (NT)">
+                          Near Threatened (NT)
+                        </option>
+                        <option value="Vulnerable (VU)">Vulnerable (VU)</option>
+                        <option value="Endangered (EN)">Endangered (EN)</option>
+                        <option value="Critically Endangered (CE)">
+                          Critically Endangered (CE)
+                        </option>
+                        <option value="Extinct in the Wild (EW)">
+                          Extinct in the Wild (EW)
+                        </option>
+                        <option value="Extinct (EX)">Extinct (EX)</option>
+                        <option value="N/A">N/A</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <button className="button">Submit</button>
