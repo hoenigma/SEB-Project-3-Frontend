@@ -3,20 +3,21 @@ import { IUser } from "../interfaces/user";
 import dogImage from "../assets/dog.jpg";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-// interface NavbarProps {
-//   user: null | IUser;
-//   setUser: Function;
-// }
+interface NavbarProps {
+  user: null | IUser;
+  setUser: Function;
+}
 
-function Navbar() {
-  // console.log("user in the navbar:", user);
-  // const navigate = useNavigate();
+function Navbar({ user, setUser }: NavbarProps) {
+  console.log("user in the navbar:", user);
 
-  // function logout() {
-  //   localStorage.removeItem("token");
-  //   setUser(null);
-  //   navigate("/");
-  // }
+  const navigate = useNavigate();
+
+  function logout() {
+    localStorage.removeItem("token");
+    setUser(null);
+    navigate("/");
+  }
 
   return (
     <>
@@ -48,12 +49,24 @@ function Navbar() {
                 </Link>
               </div>
               <div className="navbar-end">
-                <Link to="/" className="navbar-item has-text-light">
-                  Login
-                </Link>
-                <Link to="/" className="navbar-item has-text-light">
-                  Sign Up
-                </Link>
+                {!user && (
+                  <Link to="/login" className="navbar-item has-text-light">
+                    Login
+                  </Link>
+                )}
+                {!user && (
+                  <Link to="/signup" className="navbar-item has-text-light">
+                    Sign Up
+                  </Link>
+                )}
+                {/* Create a logout button, add a function logout to the onClick */}
+                {user && (
+                  <button
+                    onClick={logout}
+                    className="button navbar-item is-ghost">
+                    Logout
+                  </button>
+                )}
               </div>
             </div>
           </div>
