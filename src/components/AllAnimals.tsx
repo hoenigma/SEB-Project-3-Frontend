@@ -7,6 +7,9 @@ type Animals = null | Array<IAnimal>;
 
 function AllAnimals() {
   const [animals, setAnimals] = React.useState<Animals>(null);
+  const [search, setSearch] = React.useState("")
+
+
   React.useEffect(() => {
     async function fetchAnimals() {
       const resp = await fetch("/api/animals");
@@ -17,11 +20,31 @@ function AllAnimals() {
     fetchAnimals();
   }, []);
 
+  function handleChange(e: any) {
+  setSearch(e.currentTarget.value)
+}
+
+function filterAnimals() {
+  return animals?.filter(animal => {
+    return animal.name.toLowerCase().includes(search.toLowerCase())
+  })
+}
+
   console.log(animals);
 
   return (
     <>
       <section className="section is-flex is-flex-direction-column">
+      <div className="container">
+      <div className="searchbar">
+      <input id="searchBar"
+      className="input is-normal"
+      placeholder="Search for an Animal"
+      onChange={handleChange}
+      value={search}
+      />
+      </div>
+    </div>
         <span className="is-flex my-5">
           <Link to="/addanimal">
             <button className="button">
@@ -34,7 +57,7 @@ function AllAnimals() {
         </span>
         <div className="container">
           <div className="columns is-multiline">
-            {animals?.map((animal) => {
+            {filterAnimals()?.map((animal) => {
               return <Animal key={animal._id} {...animal} />;
             })}
           </div>

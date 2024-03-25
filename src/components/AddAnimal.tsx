@@ -27,7 +27,7 @@ export default function AddAnimal() {
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    const resp = await axios.post("/api/animals", formData, {
+    const resp = await axios.post("/api/addanimals", formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     console.log(resp.data);
@@ -82,9 +82,9 @@ export default function AddAnimal() {
               <input
                 className="input"
                 type="text"
-                name={"image"}
+                name={"type"}
                 onChange={handleChange}
-                value={formData.image}
+                value={formData.type}
               />
             </div>
           </div>
