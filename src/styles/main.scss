@@ -4,25 +4,35 @@
   flex-direction: column;
 }
 
-body {
+.home {
   background-image: linear-gradient(
       0deg,
-      rgba(0, 51, 149, 0.8),
-      rgba(0, 51, 149, 0.8)
+      rgba(0, 51, 149, 0),
+      rgba(0, 51, 149, 0)
     ),
-    url(../assets/BGanimals.png);
+    url(../assets/AnimalFactfileBG.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   margin: 200px;
 }
 
+body {
+  background-color: rgba(22, 56, 16, 1);
+}
+
 p {
   color: #323232;
 }
 
+.hero-body {
+  max-width: 1000px;
+}
+
 .container.add {
   max-width: 660px;
+  background-color: rgba($color: #f9f9f9, $alpha: 0.8);
+  box-shadow: 4px 2px 4px #323232;
 }
 
 .underline-hover:hover {
@@ -47,10 +57,6 @@ p {
 
 .button {
   max-height: 40px;
-}
-
-.animal {
-  max-width: 1000px;
 }
 
 .card-content {
