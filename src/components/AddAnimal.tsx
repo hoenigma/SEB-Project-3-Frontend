@@ -32,7 +32,7 @@ export default function AddAnimal() {
     const resp = await axios.post("/api/animals", formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log("resp", resp.data);
+    // console.log("resp", resp.data);
     navigate("/animals");
   }
 
@@ -45,27 +45,33 @@ export default function AddAnimal() {
           <div className="title is-size-2 pl-1 mb-5">Add Animal</div>
           <div className="columns is-multiline p-1 mb-0">
             <div className="field column">
-              <label className="label">Animal Name</label>
-              <div className="control">
+              <div className="control has-icons-right">
                 <input
                   className="input"
+                  placeholder="Name"
                   type="text"
                   name={"name"}
                   onChange={handleChange}
                   value={formData.name}
                 />
+                <span className="icon is-small is-right">
+                  <i className="fas fa-paw"></i>
+                </span>
               </div>
             </div>
             <div className="field column">
-              <label className="label">Species</label>
-              <div className="control">
+              <div className="control has-icons-right">
                 <input
                   className="input"
+                  placeholder="Species"
                   type="text"
                   name={"species"}
                   onChange={handleChange}
                   value={formData.species}
                 />
+                <span className="icon is-small is-right">
+                  <i className="fas fa-hippo"></i>
+                </span>
               </div>
             </div>
           </div>
@@ -117,7 +123,7 @@ export default function AddAnimal() {
               </div>
             </div>
           </div>
-          <div className="field is-flex is-justify-content-space-between p-1">
+          <div className="field is-flex is-justify-content-space-between p-1 mb-3">
             <label className="label">Continent</label>
             <div className="dropdown is-active">
               <div className="dropdown-trigger">
@@ -146,41 +152,50 @@ export default function AddAnimal() {
           </div>
 
           <div className="field p-1">
-            <label className="label">Image</label>
-            <div className="control">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Image url"
                 type="text"
                 name={"image"}
                 onChange={handleChange}
                 value={formData.image}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-photo-film"></i>
+              </span>
             </div>
           </div>
 
           <div className="field p-1 mt-1">
-            <label className="label">Top Tip</label>
-            <div className="control">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Top Tip"
                 type="text"
                 name={"topTip"}
                 onChange={handleChange}
                 value={formData.topTip}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-lightbulb"></i>
+              </span>
             </div>
           </div>
 
           <div className="field p-1 mt-1">
-            <label className="label">Fun Fact</label>
-            <div className="control">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Fun Fact"
                 type="text"
                 name={"funFact"}
                 onChange={handleChange}
                 value={formData.funFact}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-face-smile"></i>
+              </span>
             </div>
           </div>
           <div className="field is-flex is-justify-content-space-between p-1 mt-1">

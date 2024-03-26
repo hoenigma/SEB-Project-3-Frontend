@@ -15,7 +15,7 @@ function AllAnimals() {
     async function fetchAnimals() {
       const resp = await fetch("/api/animals");
       const data = await resp.json();
-      console.log(data);
+      // console.log(data);
       setAnimals(data);
     }
     fetchAnimals();
@@ -54,7 +54,7 @@ function AllAnimals() {
     <>
       <section className="section is-flex is-flex-direction-column">
         <div className="columns is-multicolumn">
-          <div className="container">
+          <div className="container is-widescreen">
             <div className="searchbar column is-half is-pulled-left">
               <input
                 id="searchBar"
