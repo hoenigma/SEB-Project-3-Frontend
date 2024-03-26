@@ -5,10 +5,10 @@ import { IAnimal } from "../interfaces/animal";
 import { IUser } from "../interfaces/user";
 import axios from "axios";
 
-function ShowAnimal({user}: {user: null| IUser}) {
+function ShowAnimal({ user }: { user: null | IUser }) {
   const [animal, updateAnimal] = React.useState<IAnimal | null>(null);
   const { animalId } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     async function fetchAnimal() {
@@ -21,20 +21,19 @@ function ShowAnimal({user}: {user: null| IUser}) {
     fetchAnimal();
   }, []);
 
-  async function deleteAnimal(e: SyntheticEvent){
-    try{
-      const token = localStorage.getItem("token")
-      console.log(token)
-      console.log(animalId)
+  async function deleteAnimal(e: SyntheticEvent) {
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      console.log(animalId);
       await axios.delete("/api/animals/" + animalId, {
-        headers: {Authorization: `Bearer ${token}`}
-      })
-      navigate('/animals')
-    }catch (e:any){
-      console.log(e.response.data)
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      navigate("/animals");
+    } catch (e: any) {
+      console.log(e.response.data);
     }
   }
-
 
   if (!animal) {
     return <p>Animal Loading...</p>;
@@ -43,16 +42,31 @@ function ShowAnimal({user}: {user: null| IUser}) {
     <section className="section is-small mx-6 is-centered">
       <div className="is-flex is-justify-content-space-between">
         <div className="mx-6">
-          <h2 className="is-size-2 pl-3 has-text-light has-text-weight-normal">
+          <h2 className="is-size-1 pl-3 has-text-light has-text-weight-medium">
             {animal.name}
           </h2>
-          <p className="is-uppercase pb-5 pl-3 has-text-weight-bold has-text-light">
+          <p className="is-uppercase is-size-5 pb-3 pl-4 has-text-weight-bold has-text-light">
             {animal.type}
           </p>
         </div>
-        {animal && user && (user._id === animal.user) && <Link to={`/animals/${animal._id}`} ><button className="button">Update {animal.name}</button> </ Link>}
-        {animal && user && (user._id === animal.user) && <button onClick={deleteAnimal} className="button is-danger">Delete {animal.name}</button>}
-      {animal && user &&  <Link to= {`/${animal._id}/posts`}> <button className="button is-danger">{animal.name} Community Posts</button> </Link>}
+        {animal && user && user._id === animal.user && (
+          <Link to={`/animals/${animal._id}`}>
+            <button className="button">Update {animal.name}</button>{" "}
+          </Link>
+        )}
+        {animal && user && user._id === animal.user && (
+          <button onClick={deleteAnimal} className="button is-danger">
+            Delete {animal.name}
+          </button>
+        )}
+        {animal && user && (
+          <Link to={`/${animal._id}/posts`}>
+            {" "}
+            <button className="button is-danger">
+              {animal.name} Community Posts
+            </button>{" "}
+          </Link>
+        )}
       </div>
       <div className="columns is-multiline mx-6">
         <div className="column is-two-fifths">
@@ -98,7 +112,7 @@ function ShowAnimal({user}: {user: null| IUser}) {
                 <p className="has-text-light is-size-6">{animal.topTip}</p>
               </div>
             </div>
-            <div className="container is-flex is-justify-content-end mt-6">
+            <div className="container is-flex mt-6">
               <p className="is-uppercase has-text-weight-bold has-text-light custom-min-width is-size-6">
                 Conservation
               </p>

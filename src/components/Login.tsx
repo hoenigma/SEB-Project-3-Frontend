@@ -3,7 +3,7 @@ import { SyntheticEvent } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({fetchUser}: {fetchUser: Function}) {
+export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate();
 
   const [formData, setFormData] = React.useState({
@@ -19,7 +19,7 @@ export default function Login({fetchUser}: {fetchUser: Function}) {
     const newFormData = structuredClone(formData);
     newFormData[fieldName as keyof typeof formData] = e.target.value;
     setFormData(newFormData);
-    setErrorMessage("")
+    setErrorMessage("");
   }
 
   async function handleSubmit(e: SyntheticEvent) {
@@ -29,7 +29,7 @@ export default function Login({fetchUser}: {fetchUser: Function}) {
       localStorage.setItem("token", resp.data.token);
       console.log(resp.data);
       //we need to fetch the User
-      fetchUser()
+      fetchUser();
       //then navigate to the home page
       navigate("/");
     } catch (e: any) {
@@ -40,7 +40,7 @@ export default function Login({fetchUser}: {fetchUser: Function}) {
   console.log(formData);
 
   return (
-    <div className="section">
+    <div className="section is-large">
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="field">
@@ -67,8 +67,8 @@ export default function Login({fetchUser}: {fetchUser: Function}) {
               />
             </div>
             {errorMessage && (
-            <small className="has-text-danger">{errorMessage}</small>
-          )}
+              <small className="has-text-danger">{errorMessage}</small>
+            )}
           </div>
           <button className="button">Submit</button>
         </form>

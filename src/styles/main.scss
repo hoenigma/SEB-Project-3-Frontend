@@ -31,8 +31,8 @@ p {
 
 .container.add {
   max-width: 660px;
-  background-color: rgba($color: #f9f9f9, $alpha: 0.8);
-  box-shadow: 4px 2px 4px #323232;
+  background-color: rgba($color: #f9f9f9, $alpha: 1);
+  box-shadow: 0px 0px 8px 2px #323232;
 }
 
 .underline-hover:hover {
