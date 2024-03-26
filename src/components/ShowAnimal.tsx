@@ -52,7 +52,7 @@ function ShowAnimal({user}: {user: null| IUser}) {
         </div>
         {animal && user && (user._id === animal.user) && <button className="button">Update {animal.name}</button>}
         {animal && user && (user._id === animal.user) && <button onClick={deleteAnimal} className="button is-danger">Delete {animal.name}</button>}
-       <Link to= {`/${animal._id}/posts`}> <button className="button">{animal.name} Community Posts</button> </Link>
+      {animal && user &&  <Link to= {`/${animal._id}/posts`}> <button className="button is-danger">{animal.name} Community Posts</button> </Link>}
       </div>
       <div className="columns is-multiline mx-6">
         <div className="column is-two-fifths">

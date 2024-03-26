@@ -37,7 +37,7 @@ function App() {
         <Route path="/login" element={< Login fetchUser={fetchUser} />} /> 
         <Route path="/addanimal" element={< AddAnimal />} /> 
         <Route path="/animal/:animalId" element={<ShowAnimal user={user}  />} /> 
-        <Route path="/:animalId/posts" element={<Community />} />
+        <Route path="/:animalId/posts" element={<Community user={user} />} />
       </Routes>
     </Router>
   );

@@ -1,8 +1,12 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { IComment } from "../interfaces/comment";
+import { IUser } from "../interfaces/user";
 
-export default function Community() {
+type Comments = null | Array<IComment>;
+
+export default function Community({user}: {user: null|IUser}) {
   const navigate = useNavigate();
   const { animalId } = useParams();
 
@@ -20,22 +24,26 @@ export default function Community() {
     time: "",
   });
 
+  const [comments, setComments] = React.useState<IComment | null>(null);
+
+  //handle change function, sees whats written in the fields
   function handleChange(e: any) {
     const fieldName = e.target.name;
     const newFormData = structuredClone(formData);
     newFormData[fieldName as keyof typeof formData] = e.target.value;
     setFormData(newFormData);
     setErrorData({
-    title: "",
-    post: "",
-    date: "",
-    time: "",
-  })
+      title: "",
+      post: "",
+      date: "",
+      time: "",
+    });
   }
 
+  //Handle submit fuinction, add comment to database
   async function handleSubmit(e: SyntheticEvent) {
     try {
-     e.preventDefault()
+    //   e.preventDefault();
       const token = localStorage.getItem("token");
       console.log(token);
       console.log(formData);
@@ -45,20 +53,47 @@ export default function Community() {
       console.log("resp", resp.data);
       navigate(`/${animalId}/posts`);
       setFormData({
-    title: "",
-    post: "",
-    date: "",
-    time: "",
-  });
+        title: "",
+        post: "",
+        date: "",
+        time: "",
+      });
     } catch (e: any) {
       setErrorData(e.response.data.errors);
     }
   }
 
+  React.useEffect(() => {
+    async function fetchComments() {
+      const resp = await fetch(`/api/${animalId}/posts`);
+      console.log(resp);
+      const data = await resp.json();
+      console.log(data);
+      setComments(data);
+    }
+    fetchComments();
+  }, []);
+
+    async function deleteComment(e: any){
+    try{
+      const token = localStorage.getItem("token")
+      console.log(token)
+
+      const commentId = e.currentTarget.value
+
+      console.log(commentId)
+      await axios.delete("/api/posts/" + commentId, {
+        headers: {Authorization: `Bearer ${token}`}
+      })
+      location.reload() 
+    //   navigate('/animals')
+    }catch (e:any){
+      console.log(e.response.data)
+    }
+  }
+
   return (
     <>
-      <button className="button"> Delete Post </button>
-      <button className="button"> Update Post </button>
       <div className="section">
         <div className="container add is-max-desktop custom-border-radius p-6">
           <form onSubmit={handleSubmit}>
@@ -132,6 +167,23 @@ export default function Community() {
             </div>
             <button className="button"> Add Post </button>
           </form>
+        </div>
+      </div>
+
+      <div className="section">
+        <div className="container">
+          <div className="columns is-multiline">
+            {comments?.map((comment:any) => {
+              return <div key ={comment._id}>
+                <h3> {comment.title}</h3>
+                <h4>{comment.post}</h4>
+                <p>
+                  {comment.date} {comment.time}
+                </p>
+                {comment && user && (user._id === comment.user) && <button onClick={deleteComment} value ={comment._id} className="button is-danger">Delete Post</button>}
+              </div>;
+            })}
+          </div>
         </div>
       </div>
     </>
