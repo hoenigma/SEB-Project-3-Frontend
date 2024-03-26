@@ -1,11 +1,11 @@
 import React, { SyntheticEvent, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import axios, { formToJSON } from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function UpdateAnimal() {
     const navigate = useNavigate();
+    const {animalId} = useParams()
 
 
     const [formData, setFormData] = useState({
@@ -32,12 +32,14 @@ export default function UpdateAnimal() {
         const token = localStorage.getItem("token");
         console.log(token);
         console.log(formData);
-        const resp = await axios.post("/api/animals", formData , {
+        const resp = await axios.put(`/api/animals/${animalId}`, formData , {
             headers: { Authorization: `Bearer ${token}` }, 
         }); 
-        console.log("resp", resp.data);
+        console.log("resp", resp);
         navigate("/animals"); 
     }
+
+    console.log(handleChange)
 
     return (
     <div className="section">
@@ -159,7 +161,3 @@ export default function UpdateAnimal() {
 }
 
 
-
-
-
-}

@@ -10,6 +10,7 @@ import AllAnimals from "./components/AllAnimals";
 import Community from "./components/AddComment";
 import axios from "axios";
 import React from "react";
+import UpdateAnimal from "./components/UpdateAnimal";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,6 +39,7 @@ function App() {
         <Route path="/addanimal" element={< AddAnimal />} /> 
         <Route path="/animal/:animalId" element={<ShowAnimal user={user}  />} /> 
         <Route path="/:animalId/posts" element={<Community />} />
+        <Route path="/animals/:animalId" element={<UpdateAnimal />}/>
       </Routes>
     </Router>
   );
