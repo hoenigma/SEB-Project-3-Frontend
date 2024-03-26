@@ -50,7 +50,7 @@ function ShowAnimal({user}: {user: null| IUser}) {
             {animal.type}
           </p>
         </div>
-        {animal && user && (user._id === animal.user) && <button className="button">Update {animal.name}</button>}
+        {animal && user && (user._id === animal.user) && <Link to={`/animals/${animal._id}`} ><button className="button">Update {animal.name}</button> </ Link>}
         {animal && user && (user._id === animal.user) && <button onClick={deleteAnimal} className="button is-danger">Delete {animal.name}</button>}
       {animal && user &&  <Link to= {`/${animal._id}/posts`}> <button className="button is-danger">{animal.name} Community Posts</button> </Link>}
       </div>
