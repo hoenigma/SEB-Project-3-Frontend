@@ -40,33 +40,112 @@ export default function AddAnimal() {
 
   return (
     <div className="section">
-      <div className="container">
+      <div className="container add is-max-desktop custom-border-radius p-6">
         <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label className="label">Animal Name</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"name"}
-                onChange={handleChange}
-                value={formData.name}
-              />
+          <div className="title is-size-2 pl-1 mb-5">Add Animal</div>
+          <div className="columns is-multiline p-1 mb-0">
+            <div className="field column">
+              <label className="label">Animal Name</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name={"name"}
+                  onChange={handleChange}
+                  value={formData.name}
+                />
+              </div>
+            </div>
+            <div className="field column">
+              <label className="label">Species</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name={"species"}
+                  onChange={handleChange}
+                  value={formData.species}
+                />
+              </div>
             </div>
           </div>
-          <div className="field">
-            <label className="label">Species</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"species"}
-                onChange={handleChange}
-                value={formData.species}
-              />
+
+          <div className="field is-flex is-justify-content-space-between p-1">
+            <label className="label">Type</label>
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="type"
+                        value={formData.type}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Land">Land</option>
+                        <option value="Water">Water</option>
+                        <option value="Domestic">Domestic</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="field">
+          <div className="field is-flex is-justify-content-space-between p-1">
+            <label className="label">Dietary</label>
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="dietary"
+                        value={formData.dietary}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Carnivore">Carnivore</option>
+                        <option value="Herbivore">Herbivore</option>
+                        <option value="Omnivore">Omnivore</option>
+                        <option value="Insectivore">Insectivore</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="field is-flex is-justify-content-space-between p-1">
+            <label className="label">Continent</label>
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="continent"
+                        value={formData.continent}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Asia">Asia</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Antarctica">Antarctica</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="field p-1">
             <label className="label">Image</label>
             <div className="control">
               <input
@@ -78,19 +157,8 @@ export default function AddAnimal() {
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Type</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"type"}
-                onChange={handleChange}
-                value={formData.type}
-              />
-            </div>
-          </div>
-          <div className="field">
+
+          <div className="field p-1 mt-1">
             <label className="label">Top Tip</label>
             <div className="control">
               <input
@@ -102,31 +170,8 @@ export default function AddAnimal() {
               />
             </div>
           </div>
-          <div className="field">
-            <label className="label">Dietary</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"dietary"}
-                onChange={handleChange}
-                value={formData.dietary}
-              />
-            </div>
-          </div>
-          <div className="field">
-            <label className="label">Continent</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"continent"}
-                onChange={handleChange}
-                value={formData.continent}
-              />
-            </div>
-          </div>
-          <div className="field">
+
+          <div className="field p-1 mt-1">
             <label className="label">Fun Fact</label>
             <div className="control">
               <input
@@ -138,19 +183,43 @@ export default function AddAnimal() {
               />
             </div>
           </div>
-          <div className="field">
+          <div className="field is-flex is-justify-content-space-between p-1 mt-1">
             <label className="label">Conservation</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name={"conservation"}
-                onChange={handleChange}
-                value={formData.conservation}
-              />
+            <div className="dropdown is-active">
+              <div className="dropdown-trigger">
+                <div className="dropdown is-active">
+                  <div className="dropdown-trigger">
+                    <div className="select">
+                      <select
+                        name="conservation"
+                        value={formData.conservation}
+                        onChange={handleChange}
+                      >
+                        <option value={""}>Select an option</option>
+                        <option value="Least Concerned (LC)">
+                          Least Concerned (LC)
+                        </option>
+                        <option value="Near Threatened (NT)">
+                          Near Threatened (NT)
+                        </option>
+                        <option value="Vulnerable (VU)">Vulnerable (VU)</option>
+                        <option value="Endangered (EN)">Endangered (EN)</option>
+                        <option value="Critically Endangered (CE)">
+                          Critically Endangered (CE)
+                        </option>
+                        <option value="Extinct in the Wild (EW)">
+                          Extinct in the Wild (EW)
+                        </option>
+                        <option value="Extinct (EX)">Extinct (EX)</option>
+                        <option value="N/A">N/A</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <button className="button">Submit</button>
+          <button className="button mt-6">Submit</button>
         </form>
       </div>
     </div>

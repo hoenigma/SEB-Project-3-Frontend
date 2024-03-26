@@ -21,8 +21,16 @@ p {
   color: #323232;
 }
 
+.container.add {
+  max-width: 660px;
+}
+
 .underline-hover:hover {
   font-weight: bold;
+}
+
+.button.navbar-item.is-ghost {
+  max-height: 100px;
 }
 
 .custom-border-radius {
