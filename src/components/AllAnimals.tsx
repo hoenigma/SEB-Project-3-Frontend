@@ -10,6 +10,7 @@ function AllAnimals() {
   const [search, setSearch] = React.useState("");
   const [value, setValue] = React.useState("");
 
+
   React.useEffect(() => {
     async function fetchAnimals() {
       const resp = await fetch("/api/animals");
