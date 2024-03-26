@@ -119,6 +119,7 @@ export default function Community({user}: {user: null|IUser}) {
             <div className="field">
               <label className="label">What do you want to say?</label>
               <div className="control">
+                <textarea className="textArea">
                 <input
                   className="input"
                   type="text"
@@ -127,6 +128,7 @@ export default function Community({user}: {user: null|IUser}) {
                   onChange={handleChange}
                   value={formData.post}
                 />
+                </textarea>
                 {errorData.post && (
                   <small className="has-text-danger">{errorData.post}</small>
                 )}
