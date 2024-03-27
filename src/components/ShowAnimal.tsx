@@ -35,6 +35,16 @@ function ShowAnimal({ user }: { user: null | IUser }) {
     }
   }
 
+  const [showMessage, setShowMessage] = React.useState(false);
+  function deleteMessage({ deleteAnimal }) {
+   
+
+    const handleDelete = () => {
+      deleteAnimal();
+      setShowMessage(false)
+    }
+  }
+
   if (!animal) {
     return <p>Animal Loading...</p>;
   }
