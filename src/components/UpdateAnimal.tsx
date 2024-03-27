@@ -6,6 +6,18 @@ export default function UpdateAnimal() {
   const navigate = useNavigate();
   const { animalId } = useParams();
 
+   React.useEffect(() => {
+    async function fetchAnimal() {
+      const resp = await fetch(`/api/animals/${animalId}`);
+
+      const animalData = await resp.json();
+      setFormData(animalData);
+      // console.log("this is the", animalData);
+    }
+    fetchAnimal();
+  }, [animalId]);
+
+
   const [formData, setFormData] = useState({
     name: "",
     species: "",
@@ -18,9 +30,12 @@ export default function UpdateAnimal() {
     conservation: "",
   });
 
+  console.log(formData)
+
   function handleChange(e: any) {
     const fieldName = e.target.name;
     const newFormData = structuredClone(formData);
+    // console.log(newFormData)
     newFormData[fieldName as keyof typeof formData] = e.target.value;
     setFormData(newFormData);
   }
