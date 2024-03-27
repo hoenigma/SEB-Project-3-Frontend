@@ -88,7 +88,7 @@ function AllAnimals({ user }: { user: null | IUser }) {
             </div>
           </div>
           <span className="is-flex mt-3">
-            {!user && (
+            {user && (
               <Link to="/addanimal">
                 <button className="button is-light is-outlined mr-4">
                   Add Animal
