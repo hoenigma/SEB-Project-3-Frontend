@@ -40,31 +40,38 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   console.log(formData);
 
   return (
-    <div className="section is-large">
-      <div className="container">
+    <div className="section">
+      <div className="container add is-max-desktop custom-border-radius p-6">
+        <div className="title is-size-3 has-text-centered pl-1 mb-5">Login</div>
         <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
+          <div className="field m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Email"
                 type="text"
                 name={"email"}
                 onChange={handleChange}
                 value={formData.email}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-envelope"></i>
+              </span>
             </div>
           </div>
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
+          <div className="field m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Password"
                 type="password"
                 name={"password"}
                 onChange={handleChange}
                 value={formData.password}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-lock"></i>
+              </span>
             </div>
             {errorMessage && (
               <small className="has-text-danger">{errorMessage}</small>
