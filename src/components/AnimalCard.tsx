@@ -17,12 +17,9 @@ function Animal({
 }: IAnimal) {
   const [like, setLikes] = React.useState(0);
   function likeButton() {
-    const [like, setLikes] = React.useState("");
-
-    const handleLikeClick = () => {
       setLikes(like + 1);
     };
-  }
+  
 
   return (
     <div className="column is-one-quarter-desktop is-one-third-tablet">
