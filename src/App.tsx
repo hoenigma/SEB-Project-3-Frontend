@@ -32,14 +32,14 @@ function App() {
     <Router>
       <Navbar user={user} setUser={setUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/animals" element={<AllAnimals />} />
-        <Route path="/signup" element={< Signup />} />
-        <Route path="/login" element={< Login fetchUser={fetchUser} />} /> 
-        <Route path="/addanimal" element={< AddAnimal />} /> 
-        <Route path="/animal/:animalId" element={<ShowAnimal user={user}  />} /> 
+        <Route path="/" element={<Home user={user} />} />
+        <Route path="/animals" element={<AllAnimals user={user} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login fetchUser={fetchUser} />} />
+        <Route path="/addanimal" element={<AddAnimal />} />
+        <Route path="/animal/:animalId" element={<ShowAnimal user={user} />} />
         <Route path="/:animalId/posts" element={<Community user={user} />} />
-        <Route path="/animals/:animalId" element={<UpdateAnimal />}/>
+        <Route path="/animals/:animalId" element={<UpdateAnimal />} />
       </Routes>
     </Router>
   );
