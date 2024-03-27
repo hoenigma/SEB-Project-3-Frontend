@@ -39,7 +39,7 @@ function ShowAnimal({ user }: { user: null | IUser }) {
     return <p>Animal Loading...</p>;
   }
   return (
-    <section className="section is-small mx-6 is-centered">
+    <section className="section hero is-flex is-fullheight is-justify-content-space-around mx-6 is-centered">
       <div className="is-flex is-justify-content-space-between">
         <div className="mx-6">
           <h2 className="is-size-1 pl-3 has-text-light has-text-weight-medium">
@@ -49,20 +49,11 @@ function ShowAnimal({ user }: { user: null | IUser }) {
             {animal.type}
           </p>
         </div>
-        {animal && user && user._id === animal.user && (
-          <Link to={`/animals/${animal._id}`}>
-            <button className="button">Update {animal.name}</button>{" "}
-          </Link>
-        )}
-        {animal && user && user._id === animal.user && (
-          <button onClick={deleteAnimal} className="button is-danger">
-            Delete {animal.name}
-          </button>
-        )}
+
         {animal && user && (
           <Link to={`/${animal._id}/posts`}>
             {" "}
-            <button className="button is-danger">
+            <button className="button community mr-6">
               {animal.name} Community Posts
             </button>{" "}
           </Link>
@@ -117,6 +108,21 @@ function ShowAnimal({ user }: { user: null | IUser }) {
                 Conservation
               </p>
               <p className="has-text-light is-size-3">{animal.conservation}</p>
+            </div>
+            <div className="is-pulled-right">
+              {" "}
+              {animal && user && user._id === animal.user && (
+                <Link to={`/animals/${animal._id}`}>
+                  <button className="button is-light is-outlined mr-4">
+                    Update {animal.name}
+                  </button>{" "}
+                </Link>
+              )}
+              {animal && user && user._id === animal.user && (
+                <button onClick={deleteAnimal} className="button is-danger">
+                  Delete {animal.name}
+                </button>
+              )}
             </div>
           </div>
         </div>

@@ -43,67 +43,94 @@ export default function Signup() {
   }
 
   return (
-    <div className="section">
-      <div className="container">
+    <div className="hero is-flex is-fullheight is-justify-content-space-around">
+      <div className="container login is-flex-grow-0 add is-max-desktop custom-border-radius p-6">
+        <div className="title is-size-3 has-text-centered pl-1 mb-5">
+          Sign up
+        </div>
         {/* function for clicking submit */}
         <form onSubmit={handleSubmit}>
-          <div className="field">
-            <label className="label">Username</label>
-            <div className="control">
+          <div className="field m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Username"
                 type="text"
                 name={"username"}
                 //function to handle typing changes
                 onChange={handleChange}
                 value={formData.username}
-              />
+              />{" "}
+              <span className="icon is-small is-right">
+                <i className="fas fa-user"></i>
+              </span>
+              <div className="is-size-7 m-1 has-text-weight-semibold">
+                Please make it unique
+              </div>
               {/* error handeling, show text from error messaging */}
               {errorData.username && (
                 <small className="has-text-danger">{errorData.username}</small>
               )}
             </div>
           </div>
-          <div className="field">
-            <label className="label">Email</label>
-            <div className="control">
+          <div className="field m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Email"
                 type="text"
                 name={"email"}
                 onChange={handleChange}
                 value={formData.email}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-envelope"></i>
+              </span>
+              <div className="is-size-7 m-1 has-text-weight-semibold">
+                Please use be a valid email
+              </div>
               {errorData.email && (
                 <small className="has-text-danger">{errorData.email}</small>
               )}
             </div>
           </div>
-          <div className="field">
-            <label className="label">Password</label>
-            <div className="control">
+          <div className="field m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Password"
                 type="password"
                 name={"password"}
                 onChange={handleChange}
                 value={formData.password}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-lock"></i>
+              </span>
+              <div className="is-size-7 m-1 has-text-weight-semibold">
+                Please include 1 uppercase, 1 lowercase, 1 number and 1 symbol
+              </div>
               {errorData.password && (
                 <small className="has-text-danger">{errorData.password}</small>
               )}
             </div>
           </div>
-          <div className="field">
-            <label className="label">Confirm password</label>
-            <div className="control">
+          <div className="fiel m-4">
+            <div className="control has-icons-right">
               <input
                 className="input"
+                placeholder="Confirm Password"
                 type="password"
                 name={"passwordConfirmation"}
                 onChange={handleChange}
                 value={formData.passwordConfirmation}
               />
+              <span className="icon is-small is-right">
+                <i className="fas fa-lock"></i>
+              </span>
+              <div className="is-size-7 m-1 has-text-weight-semibold">
+                Make sure it matches your password above
+              </div>
               {errorData.passwordConfirmation && (
                 <small className="has-text-danger">
                   {errorData.passwordConfirmation}
@@ -111,7 +138,9 @@ export default function Signup() {
               )}
             </div>
           </div>
-          <button className="button">Submit</button>
+          <div className="is-flex is-justify-content-center">
+            <button className="button">Submit</button>
+          </div>
         </form>
       </div>
     </div>

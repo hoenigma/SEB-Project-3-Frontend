@@ -40,8 +40,8 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
   console.log(formData);
 
   return (
-    <div className="section">
-      <div className="container add is-max-desktop custom-border-radius p-6">
+    <div className="hero is-flex is-fullheight is-justify-content-space-around">
+      <div className="container login is-flex-grow-0 add is-max-desktop custom-border-radius p-6">
         <div className="title is-size-3 has-text-centered pl-1 mb-5">Login</div>
         <form onSubmit={handleSubmit}>
           <div className="field m-4">
@@ -59,7 +59,7 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
               </span>
             </div>
           </div>
-          <div className="field m-4">
+          <div className="field m-4 mx-4">
             <div className="control has-icons-right">
               <input
                 className="input"
@@ -73,11 +73,16 @@ export default function Login({ fetchUser }: { fetchUser: Function }) {
                 <i className="fas fa-lock"></i>
               </span>
             </div>
+            <div className="is-size-7 m-1 has-text-weight-semibold">
+              Don't forget your 1 uppercase, 1 lowercase, 1 number and 1 symbol
+            </div>
             {errorMessage && (
               <small className="has-text-danger">{errorMessage}</small>
             )}
           </div>
-          <button className="button">Submit</button>
+          <div className="is-flex is-justify-content-center">
+            <button className="button">Submit</button>
+          </div>
         </form>
       </div>
     </div>
