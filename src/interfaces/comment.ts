@@ -4,5 +4,4 @@ export interface IComment {
     post: string;
     date: string;
     time: string;
-
 }

@@ -13,18 +13,14 @@ export default function Community({ user }: { user: null | IUser }) {
   const [formData, setFormData] = useState({
     title: "",
     post: "",
-    date: "",
-    time: "",
   });
 
   const [errorData, setErrorData] = useState({
     title: "",
     post: "",
-    date: "",
-    time: "",
   });
 
-  const [comments, setComments] = React.useState<IComment | null>(null);
+  const [comments, setComments] = React.useState<Comments>(null);
 
   //handle change function, sees whats written in the fields
   function handleChange(e: any) {
@@ -35,8 +31,6 @@ export default function Community({ user }: { user: null | IUser }) {
     setErrorData({
       title: "",
       post: "",
-      date: "",
-      time: "",
     });
   }
 
@@ -55,8 +49,6 @@ export default function Community({ user }: { user: null | IUser }) {
       setFormData({
         title: "",
         post: "",
-        date: "",
-        time: "",
       });
     } catch (e: any) {
       setErrorData(e.response.data.errors);
@@ -92,15 +84,39 @@ export default function Community({ user }: { user: null | IUser }) {
     }
   }
 
+
+//   function sortPosts(comments) {
+//     // Get the current date and time
+//     const currentDate = new Date();
+//     const currentTime = currentDate.getTime();
+
+//     const currentDate2 = currentDate.toString();
+//     const currentTime2 = currentTime.toString();
+
+//     console.log("date; ", currentDate2)
+//     console.log("time: ", currentTime2)
+//     console.log(comments)
+
+//     // Filter comments based on their date and time
+//     return comments?.sort(comment => {
+//         // Convert comment date and time to milliseconds
+//         comment.date >= currentDate2 && comment.time >= currentTime2
+        
+//         // Return true if the comment's date and time is after or equal to the current date and time
+//     });
+// }
+// const sortedPosts = sortPosts(comments);
+// console.log (sortedPosts)
+
   return (
     <>
       <div className="section is-flex is-flex-direction-row">
-        <div className="container add is-max-desktop custom-border-radius p-6">
+        <div className="container comment is-max-desktop custom-border-radius p-6">
           <form onSubmit={handleSubmit}>
             <div className="title is-size-2 pl-1 mb-5">Add Post</div>
 
             <div className="field">
-              <label className="label">Title of Post</label>
+              <label className="label"></label>
               <div className="control has-icons-right">
                 <input
                   className="input"
@@ -120,7 +136,7 @@ export default function Community({ user }: { user: null | IUser }) {
             </div>
 
             <div className="field">
-              <label className="label">What do you want to say?</label>
+              <label className="label"></label>
               <div className="control has-icons-right">
                 <input
                   className="input"
@@ -139,64 +155,30 @@ export default function Community({ user }: { user: null | IUser }) {
                 )}
               </div>
             </div>
-
-            <div className="columns is-multiline p-1 mb-0">
-              <div className="field column">
-                <label className="label">Date</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    name={"date"}
-                    onChange={handleChange}
-                    value={formData.date}
-                  />
-                  {errorData.date && (
-                    <small className="has-text-danger">{errorData.date}</small>
-                  )}
-                </div>
-              </div>
-              <div className="field column">
-                <label className="label">Time</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    name={"time"}
-                    onChange={handleChange}
-                    value={formData.time}
-                  />
-                  {errorData.time && (
-                    <small className="has-text-danger">{errorData.time}</small>
-                  )}
-                </div>
-              </div>
-            </div>
-            <button className="button"> Add Post </button>
+            <button className="button my-3"> Add Post </button>
           </form>
         </div>
-      </div>
 
-      <div className="section">
-        <div className="column is-one-quarter-desktop is-one-third-tablet">
+        <div className="section is-flex is-flex-direction-column-reverse">
+          {/* <div className="column-reverse"> */}
           <div className="columns is-multiline">
-            <div className="card">
+            <div>
               {comments?.map((comment: any) => {
                 return (
-                  <div key={comment._id}>
+                  <div className="card comment my-2" key={comment._id}>
                     <div className="card content">
                       <p className="title">{comment.title}</p>
                     </div>
 
-                    <p className="subtitle">{comment.post}</p>
+                    <p className="subtitle mx-1 my-2 ">{comment.post}</p>
 
                     <footer className="card-footer">
                       <p className="card-footer-item">
-                        <span>{comment.date}</span>
+                        <span>Date: {comment.date}</span>
                       </p>
 
                       <p className="card-footer-item">
-                        <span>{comment.time}</span>
+                        <span>Time: {comment.time}</span>
                       </p>
                     </footer>
 
@@ -204,7 +186,7 @@ export default function Community({ user }: { user: null | IUser }) {
                       <button
                         onClick={deleteComment}
                         value={comment._id}
-                        className="button is-danger"
+                        className="button deleteComment ml-1 mb-1 is-danger"
                       >
                         Delete Post
                       </button>
@@ -216,6 +198,7 @@ export default function Community({ user }: { user: null | IUser }) {
           </div>
         </div>
       </div>
+      {/* </div> */}
     </>
   );
 }
