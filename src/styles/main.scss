@@ -1,5 +1,5 @@
 .card {
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -15,6 +15,10 @@
   background-repeat: no-repeat;
   background-position: center;
   margin: 200px;
+}
+
+.hero-body.hometext {
+  background-color: rgba(127, 178, 121, 0.7);
 }
 
 body {
@@ -35,12 +39,21 @@ p {
   box-shadow: 0px 0px 8px 2px #323232;
 }
 
+.container.login {
+  max-width: 540px;
+}
+
 .underline-hover:hover {
   font-weight: bold;
 }
 
 .button.navbar-item.is-ghost {
   max-height: 100px;
+}
+
+.button.community {
+  background-color: rgba(127, 178, 121, 1);
+  color: #f9f9f9;
 }
 
 .custom-border-radius {
