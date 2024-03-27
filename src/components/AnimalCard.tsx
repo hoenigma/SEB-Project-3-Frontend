@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLinkClickHandler } from "react-router-dom";
 import { IAnimal } from "../interfaces/animal";
+import React from 'react';
 
 function Animal({
   _id,
@@ -14,6 +15,15 @@ function Animal({
   conservation,
   user,
 }: IAnimal) {
+  const [like, setLikes] = React.useState(0);
+  function likeButton() {
+    const [like, setLikes] = React.useState("");
+
+    const handleLikeClick = () => {
+      setLikes(like + 1);
+    };
+  }
+
   return (
     <div className="column is-one-quarter-desktop is-one-third-tablet">
       <Link to={`/Animal/${_id}`}>
@@ -45,6 +55,12 @@ function Animal({
           </div>
         </div>
       </Link>
+       <div className="level">
+        <div className="level-left">
+          <button className="button is-ghost" onClick={likeButton}>❤️</button>
+          <span className="has-text-weight-bold has-text-danger">{like}</span>  
+        </div>
+      </div>
     </div>
   );
 }

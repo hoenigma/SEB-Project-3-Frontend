@@ -17,6 +17,10 @@
   margin: 200px;
 }
 
+.hero-body.hometext {
+  background-color: rgba(127, 178, 121, 0.7);
+}
+
 body {
   background-color: rgba(22, 56, 16, 1);
 }
@@ -47,12 +51,21 @@ p {
     display: flex;
   }
 
+.container.login {
+  max-width: 540px;
+}
+
 .underline-hover:hover {
   font-weight: bold;
 }
 
 .button.navbar-item.is-ghost {
   max-height: 100px;
+}
+
+.button.community {
+  background-color: rgba(127, 178, 121, 1);
+  color: #f9f9f9;
 }
 
 .custom-border-radius {

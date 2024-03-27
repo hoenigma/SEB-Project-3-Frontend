@@ -2,14 +2,14 @@ import React from "react";
 import Animal from "./AnimalCard";
 import { IAnimal } from "../interfaces/animal";
 import { Link } from "react-router-dom";
+import { IUser } from "../interfaces/user";
 
 type Animals = null | Array<IAnimal>;
 
-function AllAnimals() {
+function AllAnimals({ user }: { user: null | IUser }) {
   const [animals, setAnimals] = React.useState<Animals>(null);
   const [search, setSearch] = React.useState("");
   const [value, setValue] = React.useState("");
-
 
   React.useEffect(() => {
     async function fetchAnimals() {
@@ -55,11 +55,11 @@ function AllAnimals() {
       <section className="section is-flex is-flex-direction-column">
         <div className="columns is-multicolumn">
           <div className="container is-widescreen">
-            <div className="searchbar column is-half is-pulled-left">
+            <div className=" searchbar column is-half is-pulled-left ">
               <input
                 id="searchBar"
                 className="input is-normal"
-                placeholder="Search for an Animal"
+                placeholder="Search"
                 onChange={handleChange}
                 value={search}
               />
@@ -88,14 +88,16 @@ function AllAnimals() {
             </div>
           </div>
           <span className="is-flex mt-3">
-            <Link to="/addanimal">
-              <button className="button is-light is-outlined mr-4">
-                Add Animal
-                <span className="icon ml-1">
-                  <i className="fa fa-plus"></i>
-                </span>
-              </button>
-            </Link>
+            {!user && (
+              <Link to="/addanimal">
+                <button className="button is-light is-outlined mr-4">
+                  Add Animal
+                  <span className="icon ml-1">
+                    <i className="fa fa-plus"></i>
+                  </span>
+                </button>
+              </Link>
+            )}
           </span>
         </div>
 
