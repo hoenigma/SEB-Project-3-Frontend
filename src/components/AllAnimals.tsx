@@ -3,6 +3,7 @@ import Animal from "./AnimalCard";
 import { IAnimal } from "../interfaces/animal";
 import { Link } from "react-router-dom";
 import { IUser } from "../interfaces/user";
+import { baseUrl } from "../config";
 
 type Animals = null | Array<IAnimal>;
 
@@ -13,7 +14,7 @@ function AllAnimals({ user }: { user: null | IUser }) {
 
   React.useEffect(() => {
     async function fetchAnimals() {
-      const resp = await fetch("/api/animals");
+      const resp = await fetch(`${baseUrl}/animals`);
       const data = await resp.json();
       // console.log(data);
       setAnimals(data);
@@ -23,7 +24,7 @@ function AllAnimals({ user }: { user: null | IUser }) {
 
   React.useEffect(() => {
     async function fetchAnimal() {
-      const resp = await fetch(`/api/animals?type=${value}`);
+      const resp = await fetch(`${baseUrl}/animals?type=${value}`);
       const animalData = await resp.json();
       setAnimals(animalData);
     }

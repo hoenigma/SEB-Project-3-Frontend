@@ -11,12 +11,13 @@ import Community from "./components/AddComment";
 import axios from "axios";
 import React from "react";
 import UpdateAnimal from "./components/UpdateAnimal";
+import { baseUrl } from "./config";
 
 function App() {
   const [user, setUser] = useState(null);
   async function fetchUser() {
     const token = localStorage.getItem("token");
-    const resp = await axios.get("/api/user", {
+    const resp = await axios.get(`${baseUrl}/user`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     console.log(resp.data);

@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../config";
 
 export default function AddAnimal() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function AddAnimal() {
     const token = localStorage.getItem("token");
     console.log(token);
     console.log(formData);
-    const resp = await axios.post("/api/animals", formData, {
+    const resp = await axios.post(`${baseUrl}/animals`, formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     // console.log("resp", resp.data);

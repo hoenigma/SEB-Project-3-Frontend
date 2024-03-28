@@ -4,6 +4,7 @@ import AnimalCard from "./AnimalCard";
 import { IAnimal } from "../interfaces/animal";
 import { IUser } from "../interfaces/user";
 import axios from "axios";
+import { baseUrl } from "../config";
 
 function ShowAnimal({ user }: { user: null | IUser }) {
   const [animal, updateAnimal] = React.useState<IAnimal | null>(null);
@@ -12,7 +13,7 @@ function ShowAnimal({ user }: { user: null | IUser }) {
 
   React.useEffect(() => {
     async function fetchAnimal() {
-      const resp = await fetch(`/api/animals/${animalId}`);
+      const resp = await fetch(`${baseUrl}/animals/${animalId}`);
 
       const animalData = await resp.json();
       updateAnimal(animalData);
@@ -26,7 +27,7 @@ function ShowAnimal({ user }: { user: null | IUser }) {
       const token = localStorage.getItem("token");
       console.log(token);
       console.log(animalId);
-      await axios.delete("/api/animals/" + animalId, {
+      await axios.delete(`${baseUrl}/animals/` + animalId, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate("/animals");

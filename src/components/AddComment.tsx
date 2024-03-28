@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { IComment } from "../interfaces/comment";
 import { IUser } from "../interfaces/user";
+import { baseUrl } from "../config";
 
 type Comments = null | Array<IComment>;
 
@@ -41,7 +42,7 @@ export default function Community({ user }: { user: null | IUser }) {
       const token = localStorage.getItem("token");
       console.log(token);
       console.log(formData);
-      const resp = await axios.post(`/api/${animalId}/posts`, formData, {
+      const resp = await axios.post(`${baseUrl}/${animalId}/posts`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       console.log("resp", resp.data);
@@ -57,7 +58,7 @@ export default function Community({ user }: { user: null | IUser }) {
 
   React.useEffect(() => {
     async function fetchComments() {
-      const resp = await fetch(`/api/${animalId}/posts`);
+      const resp = await fetch(`${baseUrl}/${animalId}/posts`);
       console.log(resp);
       const data = await resp.json();
       console.log(data);
@@ -74,7 +75,7 @@ export default function Community({ user }: { user: null | IUser }) {
       const commentId = e.currentTarget.value;
 
       console.log(commentId);
-      await axios.delete("/api/posts/" + commentId, {
+      await axios.delete(`${baseUrl}/posts/` + commentId, {
         headers: { Authorization: `Bearer ${token}` },
       });
       location.reload();

@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import axios, { formToJSON } from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { baseUrl } from "../config";
 
 export default function UpdateAnimal() {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ export default function UpdateAnimal() {
 
    React.useEffect(() => {
     async function fetchAnimal() {
-      const resp = await fetch(`/api/animals/${animalId}`);
+      const resp = await fetch(`${baseUrl}/animals/${animalId}`);
 
       const animalData = await resp.json();
       setFormData(animalData);
@@ -44,7 +45,7 @@ export default function UpdateAnimal() {
     e.preventDefault();
     const token = localStorage.getItem("token");
     console.log(token);
-    const resp = await axios.put(`/api/animals/${animalId}`, formData, {
+    const resp = await axios.put(`${baseUrl}/animals/${animalId}`, formData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     console.log("resp", resp.data);
