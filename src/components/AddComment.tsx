@@ -84,33 +84,32 @@ export default function Community({ user }: { user: null | IUser }) {
     }
   }
 
+  //   function sortPosts(comments) {
+  //     // Get the current date and time
+  //     const currentDate = new Date();
+  //     const currentTime = currentDate.getTime();
 
-//   function sortPosts(comments) {
-//     // Get the current date and time
-//     const currentDate = new Date();
-//     const currentTime = currentDate.getTime();
+  //     const currentDate2 = currentDate.toString();
+  //     const currentTime2 = currentTime.toString();
 
-//     const currentDate2 = currentDate.toString();
-//     const currentTime2 = currentTime.toString();
+  //     console.log("date; ", currentDate2)
+  //     console.log("time: ", currentTime2)
+  //     console.log(comments)
 
-//     console.log("date; ", currentDate2)
-//     console.log("time: ", currentTime2)
-//     console.log(comments)
+  //     // Filter comments based on their date and time
+  //     return comments?.sort(comment => {
+  //         // Convert comment date and time to milliseconds
+  //         comment.date >= currentDate2 && comment.time >= currentTime2
 
-//     // Filter comments based on their date and time
-//     return comments?.sort(comment => {
-//         // Convert comment date and time to milliseconds
-//         comment.date >= currentDate2 && comment.time >= currentTime2
-        
-//         // Return true if the comment's date and time is after or equal to the current date and time
-//     });
-// }
-// const sortedPosts = sortPosts(comments);
-// console.log (sortedPosts)
+  //         // Return true if the comment's date and time is after or equal to the current date and time
+  //     });
+  // }
+  // const sortedPosts = sortPosts(comments);
+  // console.log (sortedPosts)
 
   return (
     <>
-      <div className="section is-flex is-flex-direction-row">
+      <div className="section hero is-flex is-fullheight is-flex-direction-row">
         <div className="container comment is-max-desktop custom-border-radius p-6">
           <form onSubmit={handleSubmit}>
             <div className="title is-size-2 pl-1 mb-5">Add Post</div>
