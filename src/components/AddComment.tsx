@@ -181,19 +181,20 @@ export default function Community({ user }: { user: null | IUser }) {
                         <span>Time: {comment.time}</span>
                       </p>
                     </footer>
-
-                    {comment && user && user._id === comment.user && (
-                      <div>
-                      <button
-                        onClick={deleteComment}
-                        value={comment._id}
-                        className="button deleteComment ml-1 mb-1 is-danger"
-                      >
-                        Delete Post
-                      </button>
-                      <p className = "is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4" >Posted by {user.username} </p>
-                      </div>
-                    )}
+                    <div>
+                      {comment && user && user._id === comment.user && (
+                        <button
+                          onClick={deleteComment}
+                          value={comment._id}
+                          className="button deleteComment ml-1 mb-1 is-danger"
+                        >
+                          Delete Post
+                        </button>
+                      )}
+                      <p className="is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4">
+                        Posted by {user?.username}{" "}
+                      </p>
+                    </div>
                   </div>
                 );
               })}
