@@ -39,6 +39,7 @@ export default function AddAnimal() {
 
   // console.log("this is form", formData);
 
+
   return (
     <div className="section hero is-flex is-fullheight">
       <div className="container add is-max-desktop is-flex-grow-0 custom-border-radius p-6">
