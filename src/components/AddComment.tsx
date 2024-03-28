@@ -192,7 +192,7 @@ export default function Community({ user }: { user: null | IUser }) {
                         </button>
                       )}
                       <p className="is-size-7 has-text-weight-bold is-pulled-right mr-5 mt-4">
-                        Posted by {user?.username}{" "}
+                        Posted by {comment.user}
                       </p>
                     </div>
                   </div>
