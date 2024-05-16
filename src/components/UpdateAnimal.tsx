@@ -53,8 +53,8 @@ export default function UpdateAnimal() {
   }
 
   return (
-    <div className="section">
-      <div className="container add is-max-desktop custom-border-radius p-6">
+    <div className="section hero is-flex is-fullheight">
+      <div className="container add is-max-desktop is-flex-grow-0 custom-border-radius p-6">
         <form onSubmit={handleSubmit}>
           <div className="title is-size-2 pl-1 mb-5">Update</div>
           <div className="columns is-multiline p-1 mb-0">

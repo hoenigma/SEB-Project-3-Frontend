@@ -51,6 +51,18 @@ function AllAnimals({ user }: { user: null | IUser }) {
 
   console.log(animals);
 
+    // loading spinner
+   if (!animals) {
+  return <div className="columns is-mobile">
+    <div className="column is-14 is-offset-5">
+    <h1 className="title has-text-light">Loading the Animals</h1>
+    <div className="column is-12 is-offset-1">
+    <div className="lds-dual-ring"></div>
+    </div>
+    </div>
+  </div>
+}
+
   return (
     <>
       <section className="section is-flex is-flex-direction-column">
