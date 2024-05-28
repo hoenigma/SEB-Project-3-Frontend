@@ -95,7 +95,7 @@ In the planning, it was decided to include and emphasise conservation status as 
 
 ![Login](Images-ReadMe/login.png)
 
-### Memeber View
+### Member View
 
 **Home**, after login the user will be taken back to the home page where they will be greeted with a welcome message. In the navbar the signup/login has changed to a log out.
 
@@ -230,7 +230,7 @@ Designing the comments page was a personal win for me due to my improvement of u
 
 Another win for me was further understanding how Git worked and the importance of it in a group project. I was able to help my other colleagues with pushing their code and deciding what we would merge together. It showed me why in a professional setting it is important to do this and the more often it is done the easier mergers are.
 
-## Key Learning
+## Key Learnings
 
 Working in a project and doing different codes at the same time got me more comfortable with using Git and how to merge all our work together. After the first day, I was helping the rest of my team with the steps of merging and guiding them through the steps whilst they shared their screens. The merging of our codes was also done by screen sharing and checking we were happy with what would be on the GitHub Repo.
 
